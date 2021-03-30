@@ -3,6 +3,9 @@ import re
 import requests
 import unittest
 
+# Name: Meera Amin
+# UMID: 2214 7406
+
 # Task 1: Get the URL that links to the Pokemon Charmander's webpage.
 # HINT: You will have to add https://pokemondb.net to the URL retrieved using BeautifulSoup
 def getCharmanderLink(soup):
@@ -46,11 +49,14 @@ def main():
 class TestAllMethods(unittest.TestCase):
     def setUp(self):
         self.soup = BeautifulSoup(requests.get('https://pokemondb.net/pokedex/national').text, 'html.parser')
+        self.soup = BeautifulSoup(requests.get('https://pokemondb.net/pokedex/national').text, 'html.parser')
 
     def test_link_Charmander(self):
         self.assertEqual(getCharmanderLink(self.soup), 'https://pokemondb.net/pokedex/charmander')
+        self.assertEqual(getCharmanderLink(self.soup), 'https://pokemondb.net/pokedex/charmander')
 
     def test_egg_moves(self):
+        self.assertEqual(getEggMoves('scizor'), ['Counter', 'Defog', 'Feint', 'Night Slash', 'Quick Guard'])
         self.assertEqual(getEggMoves('scizor'), ['Counter', 'Defog', 'Feint', 'Night Slash', 'Quick Guard'])
 
     def test_findLetters(self):
